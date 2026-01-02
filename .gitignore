@@ -142,6 +142,7 @@ __pycache__/
 *.pyc
 
 # Ignore VS Code settings
+.vscode/
 
 # Ignore Local Settings (Secrets)
 local.settings.json
