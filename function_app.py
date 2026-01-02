@@ -26,7 +26,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 # =====================================================
 OLLAMA_URL = "http://localhost:11434/v1"
 OLLAMA_API_KEY = "ollama"
-OLLAMA_MODEL = "gpt-oss:20b"
+OLLAMA_MODEL = "phi3:latest"
 
 try:
     llm_client = OpenAI(base_url=OLLAMA_URL, api_key=OLLAMA_API_KEY)
@@ -56,7 +56,12 @@ def ScreenerAgent(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         body = req.get_json()
-        raw_text = body.get("message", "")
+        logging.info(f"📥 RECEIVED BODY: {json.dumps(body)}") # DEBUG LOG
+
+        raw_text = body.get("message") or body.get("query", "")
+        if not raw_text:
+            return func.HttpResponse(json.dumps({"error": "Missing 'message' or 'query' field in JSON"}), status_code=400)
+
         clean_text = sanitize_text(raw_text)
 
         if not HAS_LLM:
