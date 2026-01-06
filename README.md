@@ -154,3 +154,10 @@ During your recording, keep the `func start` terminal visible. It will show a cl
 
 *If inside Honeypot*:
 *   You will see **🍯 HONEYPOT GOVERNOR (LOCAL)** logs appearing in the same terminal, maintaining the flow.
+  ---
+
+## 🔗 Resources
+
+- Pitch deck: https://www.canva.com/design/DAG9SEhw2YM/WMib0bGrzx4gOdI3jjG3xw/edit?utm_content=DAG9SEhw2YM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+- Prototype demo (YouTube): https://www.youtube.com/watch?v=MK7_7ZEjfrY
+```
